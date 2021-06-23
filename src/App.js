@@ -1,6 +1,8 @@
 
 import './App.css';
 import store from "./store";
+import Navbar from "./components/navbar/navbar";
+import Mainpage from "./components/mainpage/mainpage";
 function App() {
  let myfunc=()=>{
    console.log("pushed",store.getState());
@@ -13,18 +15,11 @@ function App() {
       console.log("pushed2",store.getState());
   }
   return (
-    <div className="App">
-      <header className="App-header">
-       
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        
-          <button onClick={myfunc}> Click me</button>
-          Learn React
-    
-      </header>
-    </div>
+    <>
+    <Navbar />
+    <br></br>
+    <Mainpage />
+    </>
   );
 }
 
