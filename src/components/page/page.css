@@ -1,0 +1,26 @@
+.MuiGrid-spacing-xs-3 {
+    width: calc(100% + 24px);
+    margin-top: 64px !important;
+}
+
+.handle-mapping{
+    margin-top: 10px;
+    background-color: rgba(128, 128, 128, 0.322);
+    padding:10px;
+    cursor: pointer;
+}
+.adjust-image{
+    border-radius: 50px;
+    width:100px;
+    height: 100px;
+}
+
+.input-adj{
+    margin-bottom: 50px;
+    margin-left: 20px;
+    padding:10px;
+}
+
+.sad{
+    background-color: black;
+}

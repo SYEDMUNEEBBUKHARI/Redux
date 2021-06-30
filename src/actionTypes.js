@@ -1,2 +1,5 @@
-export const BUG_ADDED="BUG_ADDED";
+export const DATA_ADDED="DATA_ADDED";
 export const BUG_REMOVED="BUG_REMOVED";
+export const FILTER_RECORD="FILTER_RECORD";
+export const FILTER_DATA_ADDED="FILTER_DATA_ADDED";
+export const INPUT_ADDED="INPUT_ADDED";

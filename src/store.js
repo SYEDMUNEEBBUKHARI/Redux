@@ -1,7 +1,7 @@
 import {createStore}  from "redux";
-import reducer from "./reducer";
+import ApiDataReducer from "./Reducers";
 
-const store=createStore(reducer);
+const store=createStore(ApiDataReducer);
 
 export default store;
 

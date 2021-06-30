@@ -1,8 +1,9 @@
-
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import './App.css';
 import store from "./store";
 import Navbar from "./components/navbar/navbar";
-import Mainpage from "./components/mainpage/mainpage";
+import Home from "./components/mainpage/home";
+import Page from "./components/page/page";
 function App() {
  let myfunc=()=>{
    console.log("pushed",store.getState());
@@ -15,11 +16,15 @@ function App() {
       console.log("pushed2",store.getState());
   }
   return (
-    <>
-    <Navbar />
-    <br></br>
-    <Mainpage />
-    </>
+    <Router>
+    
+  <Navbar />
+    <Route path="/" exact component={Home}/>
+    <Route path="/page" component={Page} />
+
+    <Route path="/blank" component=""/>
+
+    </Router>
   );
 }
 
