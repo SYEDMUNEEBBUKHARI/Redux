@@ -3,7 +3,6 @@ import {DATA_ADDED,FILTER_RECORD} from "../actionTypes";
 
 export default function ApiDataReducer(state = "", action){
 
-    let lastId=0;
     if(action.type === DATA_ADDED)
     {
        
@@ -14,14 +13,6 @@ export default function ApiDataReducer(state = "", action){
         }
     ];
 }
-    else if(action.type === FILTER_RECORD)
-    {
-       
-           
-    }
     
-
-
-
    return state; 
 }

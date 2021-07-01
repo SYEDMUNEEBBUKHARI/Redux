@@ -6,7 +6,6 @@ import Grid from '@material-ui/core/Grid';
 import "./page.css";
 import store from "../../store";
 import { useSelector } from 'react-redux';
-import Filterdata from '../../Reducers/Filterdata';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -23,7 +22,6 @@ function Page() {
    
 useEffect( async ()=>{
     let data = store.getState();
-    console.log("PAGE",data.ApiDataReducer[1].data.results[0].name.first);
     store.dispatch({type:"FILTER_DATA_ADDED",
     payload:{
         Filterdata:data.ApiDataReducer[0].data.results[0]
@@ -46,12 +44,10 @@ const ShowData=(d,currentRow)=>{
   const inputstate=useSelector((state)=>state.Userinput);
 
 const Filtering=(d)=>{
-console.log("value",d);
 store.dispatch({type:"INPUT_ADDED",
     payload:{
         inputdata:d
     }});
-    inputstate.length>0 && console.log("input state",inputstate[inputstate.length-1].inputdata);
 }
 
     return (
@@ -71,12 +67,10 @@ store.dispatch({type:"INPUT_ADDED",
 
                     if(inputstate=="")
                     {
-                      console.log("val",val.data.results[0].name.first)
                               return val.data.results[0].name.first;
                     }
                   else if(inputstate.length >0 && val.data.results[0].name.first.toLowerCase().includes(inputstate[inputstate.length-1].inputdata.toLowerCase()))
                   {
-                      console.log("val2",val.data.results[0].name.first)
                                   return val.data.results[0].name.first;
                   }
                   
@@ -86,7 +80,7 @@ store.dispatch({type:"INPUT_ADDED",
                     
                     ).map((d,key)=>{
                         
-                        return<div className="handle-mapping" onClick={(e)=>ShowData(e.currentTarget,d.data.results[0])}   key={key}>{d.data.results[0].name.first}{console.log("d",d)}</div>
+                        return<div className="handle-mapping" onClick={(e)=>ShowData(e.currentTarget,d.data.results[0])}   key={key}>{d.data.results[0].name.first}</div>
                       
                       
                           })}
@@ -111,25 +105,10 @@ store.dispatch({type:"INPUT_ADDED",
       <br></br>
 
       <br></br>
-{/* //val.data.results[0].name.first */}
-<div className="sad"></div>
     </>
    
     );
   }
 
-
-
- 
-  
-  
   export default Page;
   
-//   Object.keys(mystate).map((d,key)=>{
-              
-//     return<div className="handle-mapping" id={mystate[d].data.results[0].cell} onClick={(e)=>ShowData(e.currentTarget,mystate[d].data.results[0])} key={key}>{mystate[d].data.results[0].name.first}</div>
-  
-  
-//       })
-
-  //   {Object.keys(user).map((d,key)=>{

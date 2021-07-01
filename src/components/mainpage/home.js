@@ -11,15 +11,12 @@ function Home() {
 
       const dispatchUserdata=async ()=>{
         const response= await axios.get('https://randomuser.me/api/');
-        console.log("data---0-0",response.data[0]);
  store.dispatch({type:"DATA_ADDED",
  payload:{
      data:response.data,
      filtervalue:response.data[0]
  }});
- console.log(
-     "--->",store.getState()
- )
+ 
       }
   return (
     <>
