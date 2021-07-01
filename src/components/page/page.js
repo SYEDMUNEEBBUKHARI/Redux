@@ -22,7 +22,12 @@ const useStyles = makeStyles((theme) => ({
 function Page() {
    
 useEffect( async ()=>{
-   
+    let data = store.getState();
+    console.log("PAGE",data.ApiDataReducer[1].data.results[0].name.first);
+    store.dispatch({type:"FILTER_DATA_ADDED",
+    payload:{
+        Filterdata:data.ApiDataReducer[0].data.results[0]
+    }});
 },[]);
 
 store.subscribe(()=>{
@@ -64,7 +69,7 @@ store.dispatch({type:"INPUT_ADDED",
                 mystate.filter((val)=>{
         
 
-                    if(inputstate.length >0 && inputstate[inputstate.length-1].inputdata  === "")
+                    if(inputstate=="")
                     {
                       console.log("val",val.data.results[0].name.first)
                               return val.data.results[0].name.first;
@@ -76,11 +81,12 @@ store.dispatch({type:"INPUT_ADDED",
                   }
                   
                   
+                  
                   }
                     
                     ).map((d,key)=>{
                         
-                        return<div className="handle-mapping" onClick={(e)=>ShowData(e.currentTarget,d.data.results[0])}   key={key}>{d.data.results[0].name.first}</div>
+                        return<div className="handle-mapping" onClick={(e)=>ShowData(e.currentTarget,d.data.results[0])}   key={key}>{d.data.results[0].name.first}{console.log("d",d)}</div>
                       
                       
                           })}
